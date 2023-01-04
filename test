@@ -39,6 +39,23 @@ makedhcp -a
 
 os_image=$(lsdef -t osimage | awk '{print $1}' | grep netboot)
 
+echo "enter the usernamae for access compute node:"
+read -p "username"
+echo "enter the password:"
+read -s "password1"
+echo "enter the password again:"
+read -s "password2"
+for i in {1}
+do
+   if [ $(password$i) == $(password$i+1)]then
+      echo "password is ok"
+      i++
+   else
+      i=i-1
+   fi
+done
+
+
 genimage $os_image
 
 # Define path for xCAT synclist file
