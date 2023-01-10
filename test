@@ -54,7 +54,7 @@ do
       i=i-1
    fi
 done
-
+chtab key=system passwd.username=root passwd.password=root
 
 genimage $os_image
 
