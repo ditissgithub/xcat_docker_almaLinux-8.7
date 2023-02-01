@@ -32,6 +32,11 @@ echo "Enter the ip(in dhcp network) for cn:"
 read ip
 echo "Enter the mac address of compute nodes:"
 read mac_add
+full_domain_name=$(hostname.$domain)
+dhcp_interface_ip= $(ip r |grep $dhcpinterface  |grep -oP "(\d+\.){3}\d+"|sed -n '2 p')
+cat >> /etc/hosts <<EOF
+dhcp_interface_ip  $full_domain_name
+EOF
 
 mkdef -t node $cn groups=compute,all cons=ipmi ip=$ip netboot=xnba installnic=mac primarynic=mac mac=$mac_add postscripts="confignetwork -s"
 
