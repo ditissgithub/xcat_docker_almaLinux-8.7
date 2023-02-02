@@ -61,6 +61,7 @@ ADD service.alma8.pkglist .
 ADD service.alma8.tmpl .
 ADD service.alma8.x86_64.otherpkgs.pkglist .
 ADD xcat_customize_alma-8.7.sh .
+ADD compute_nodes.sh /
 
 RUN chmod +x xcat_customize_alma-8.7.sh
 
