@@ -72,7 +72,7 @@ os_image=$(lsdef -t osimage | awk '{print $1}' | grep netboot)
 chtab key=system passwd.username=root passwd.password=root
 
 export CHROOT=/install/netboot/alma8.7/x86_64/compute/rootimg/
-yum -y --installroot=$CHROOT install openssh-server
+yum -y --installroot=$CHROOT install openssh-server chrony
 
 genimage $os_image
 
